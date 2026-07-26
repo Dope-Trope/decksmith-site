@@ -2,89 +2,434 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Precision-built Stream Deck profiles for AI users, developers and creative professionals." />
-    <meta name="theme-color" content="#08101d" />
-    <meta property="og:title" content="DeckSmith | Control surfaces for smarter work" />
-    <meta property="og:description" content="A precision-built Stream Deck + control profile for ChatGPT on macOS." />
-    <meta property="og:image" content="https://decksmithhq.com/images/hero-profile.png" />
-    <meta property="og:url" content="https://decksmithhq.com" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <link rel="icon" href="/favicon.svg" />
-    <link rel="stylesheet" href="/styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>DeckSmith | Control surfaces for smarter work</title>
+    <meta
+      name="description"
+      content="DeckSmith turns a Stream Deck+ into a physical control surface for ChatGPT work. 31 mapped controls, one press per model, all four dials in use. Built for macOS."
+    />
+    <link rel="canonical" href="https://decksmithhq.com/" />
+    <meta name="theme-color" content="#05080e" />
+    <meta name="color-scheme" content="dark" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="DeckSmith" />
+    <meta property="og:title" content="DeckSmith | Control surfaces for smarter work" />
+    <meta
+      property="og:description"
+      content="A precision-built Stream Deck+ control profile for ChatGPT work on macOS. 31 controls, one press per model, every dial mapped."
+    />
+    <meta property="og:url" content="https://decksmithhq.com/" />
+    <meta property="og:image" content="https://decksmithhq.com/images/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="The DeckSmith logo beside a Stream Deck+ running the DeckSmith control profile" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="DeckSmith | Control surfaces for smarter work" />
+    <meta
+      name="twitter:description"
+      content="A precision-built Stream Deck+ control profile for ChatGPT work on macOS."
+    />
+    <meta name="twitter:image" content="https://decksmithhq.com/images/og-image.jpg" />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    />
+    <link rel="preload" as="image" href="/images/deck-front-820.webp" imagesrcset="/images/deck-front-480.webp 480w, /images/deck-front-700.webp 700w, /images/deck-front-820.webp 820w" imagesizes="(max-width: 900px) 90vw, 46vw" />
+    <link rel="stylesheet" href="/styles.css" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "DeckSmith Control Profile for ChatGPT Work",
+        "brand": { "@type": "Brand", "name": "DeckSmith" },
+        "description": "A Stream Deck+ control profile that maps 31 controls for ChatGPT work on macOS, including one press per model and reasoning level, and all four dials.",
+        "image": "https://decksmithhq.com/images/og-image.jpg",
+        "url": "https://decksmithhq.com/",
+        "category": "Stream Deck profile"
+      }
+    </script>
   </head>
+
   <body>
-    <main>
-      <section class="hero" id="top">
-        <nav class="nav wrap" aria-label="Main navigation">
-          <a class="wordmark" href="#top" aria-label="DeckSmith home">Deck<span>Smith</span></a>
-          <div class="nav-links">
-            <a href="#profile">The profile</a>
-            <a href="#details">Details</a>
-            <a class="nav-cta" href="#get-it">Get the profile <span aria-hidden="true">↗</span></a>
-          </div>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header" id="top">
+      <div class="wrap header-inner">
+        <a class="brand" href="#top" aria-label="DeckSmith home">
+          <img
+            class="brand-mark"
+            src="/images/logo-mark.webp"
+            alt=""
+            width="256"
+            height="256"
+            decoding="async"
+          />
+          <span class="wordmark">Deck<span>Smith</span></span>
+        </a>
+
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="primary-nav"
+          aria-label="Open menu"
+        >
+          <span class="nav-toggle-bars"></span>
+        </button>
+
+        <nav class="nav" id="primary-nav" aria-label="Primary">
+          <a class="nav-link" href="#controls">Controls</a>
+          <a class="nav-link" href="#dials">Dials</a>
+          <a class="nav-link" href="#models">Models</a>
+          <a class="nav-link" href="#details">Details</a>
+          <a class="btn btn-primary" href="#get-it">Get the profile <span class="arrow" aria-hidden="true">↗</span></a>
         </nav>
-        <div class="hero-grid wrap">
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- ------------------------------------------------------------ hero -->
+      <section class="hero">
+        <div class="wrap hero-grid">
           <div class="hero-copy">
-            <p class="eyebrow">Precision-built Stream Deck profiles</p>
-            <h1>Put ChatGPT<br /><em>within reach.</em></h1>
-            <p class="intro">The control profile for people who would rather work than hunt through menus.</p>
+            <p class="label">Precision-built Stream Deck profiles</p>
+            <h1>Put ChatGPT <em>within reach.</em></h1>
+            <p class="lead">
+              DeckSmith turns a Stream Deck+ into a physical control surface for ChatGPT work.
+              Thirty-one controls, laid out where your fingers already expect them.
+            </p>
             <div class="hero-actions">
-              <a class="button primary" href="#get-it">Get the profile <span aria-hidden="true">↗</span></a>
-              <a class="button text" href="#profile">See what's mapped <span aria-hidden="true">↓</span></a>
+              <a class="btn btn-primary" href="#get-it">
+                Available on Elgato Marketplace <span class="arrow" aria-hidden="true">↗</span>
+              </a>
+              <a class="btn btn-ghost" href="#controls">See what's mapped</a>
             </div>
-            <div class="compatibility"><span>Stream Deck +</span><span>macOS</span><span>ChatGPT</span></div>
+            <ul class="spec-chips">
+              <li class="is-key">31 controls</li>
+              <li>Stream Deck +</li>
+              <li>macOS</li>
+            </ul>
           </div>
-          <div class="hero-art"><img src="/images/hero-profile.png" width="1920" height="1080" alt="DeckSmith ChatGPT Work control profile on a Stream Deck Plus" /></div>
-        </div>
-        <div class="hero-rule wrap"><span>01 / CONTROL, REFINED</span><span>SCROLL TO EXPLORE</span></div>
-      </section>
 
-      <section class="statement wrap" id="profile">
-        <p class="section-label">The idea</p>
-        <div>
-          <h2>Complex software.<br /><span>Engineered into simpler control.</span></h2>
-          <p>DeckSmith builds considered hardware interfaces for the tools that do serious work. The first profile puts ChatGPT's everyday controls exactly where your fingers expect them.</p>
-        </div>
-      </section>
-
-      <section class="feature feature-dark">
-        <div class="feature-copy wrap">
-          <div><p class="section-label">01 / Your control surface</p><h2>Clear the queue.<br /><em>Keep your flow.</em></h2></div>
-          <div class="feature-body"><p>Approve and decline requests with dedicated keys. Toggle Plan Mode or Voice. Start a new chat, fork the current thread, and keep momentum when the work gets interesting.</p><ul><li>31 mapped controls across two pages</li><li>27 matching black and white icons</li><li>Built for the Stream Deck + on macOS</li></ul></div>
-        </div>
-        <div class="gallery-image"><img src="/images/control-map.png" width="1920" height="1080" alt="DeckSmith control profile key mapping" /></div>
-      </section>
-
-      <section class="split-feature wrap" id="details">
-        <div class="split-image"><img src="/images/dials.png" width="1920" height="1080" alt="Stream Deck Plus with DeckSmith dial controls" /></div>
-        <div class="split-copy">
-          <p class="section-label">02 / Every dial earns its place</p><h2>More control.<br /><span>Less mouse.</span></h2>
-          <p>Scroll the long stuff. Move back and forward through history. Adjust reasoning effort mid-task. Jump between chats without breaking focus.</p>
-          <div class="metric-list"><div><strong>01</strong><span>History</span></div><div><strong>02</strong><span>Scroll</span></div><div><strong>03</strong><span>Effort</span></div><div><strong>04</strong><span>Chats</span></div></div>
+          <figure class="hero-art">
+            <img
+              src="/images/deck-front-820.webp"
+              srcset="
+                /images/deck-front-480.webp 480w,
+                /images/deck-front-700.webp 700w,
+                /images/deck-front-820.webp 820w
+              "
+              sizes="(max-width: 900px) 90vw, 46vw"
+              width="820"
+              height="770"
+              alt="A Stream Deck+ running the DeckSmith control profile, its eight keys and four dials lit"
+              fetchpriority="high"
+              decoding="async"
+            />
+          </figure>
         </div>
       </section>
 
-      <section class="feature feature-light">
-        <div class="feature-copy wrap">
-          <div><p class="section-label">03 / Direct access</p><h2>Two presses.<br /><em>Your model.</em></h2></div>
-          <div class="feature-body"><p>Open the Models folder, then hit the model you want. A nested Effort folder gives you Light through Ultra without the picker, arrow keys or menu-diving routine.</p><p>Page two is built for the rest of your day: project, Terminal, review panel, speed controls and a side chat, all within reach.</p></div>
+      <!-- ------------------------------------------------------ stat strip -->
+      <section class="stats" aria-label="Profile at a glance">
+        <ul class="wrap stats-grid">
+          <li>
+            <span class="stat-value">31</span>
+            <span class="stat-label">Mapped controls</span>
+          </li>
+          <li>
+            <span class="stat-value">4</span>
+            <span class="stat-label">Dials in use</span>
+          </li>
+          <li>
+            <span class="stat-value">2</span>
+            <span class="stat-label">Pages</span>
+          </li>
+          <li>
+            <span class="stat-value">27</span>
+            <span class="stat-label">Custom icons</span>
+          </li>
+        </ul>
+      </section>
+
+      <!-- ------------------------------------------------------- statement -->
+      <section class="statement section-light">
+        <div class="wrap statement-grid" data-reveal>
+          <p class="label">The idea</p>
+          <div>
+            <h2>Complex software, <em>engineered into simpler control.</em></h2>
+            <p class="lead">
+              DeckSmith builds considered hardware interfaces for the tools that do serious work.
+              The first profile puts the controls you reach for all day onto keys and dials, so the
+              work stays in front of you instead of behind a menu.
+            </p>
+          </div>
         </div>
-        <div class="gallery-image"><img src="/images/models.png" width="1920" height="1080" alt="DeckSmith model switching controls on a Stream Deck Plus" /></div>
       </section>
 
-      <section class="details wrap">
-        <div><p class="section-label">The fine print</p><h2>Built to stay useful.</h2></div>
-        <div class="details-copy"><p>The model, effort and speed controls use ChatGPT's composer menu, the only method currently exposed by the app. When OpenAI changes its model line-up, these controls may need an update. Everything else uses direct shortcuts and is designed to stay put.</p><p>Tested with the ChatGPT macOS app on 26 July 2026. Built for a US/ANSI keyboard layout. Stream Deck profiles are updated by re-download, and updated profiles will be published when required.</p></div>
+      <!-- ----------------------------------------------------- control map -->
+      <section class="controlmap" id="controls">
+        <div class="wrap">
+          <div class="controlmap-head" data-reveal>
+            <div>
+              <p class="label">01 / Your control surface</p>
+              <h2>Clear the queue. <em>Keep your flow.</em></h2>
+            </div>
+            <p class="lead">
+              Approve and decline with dedicated keys. Toggle plan mode or voice. Start a new chat
+              or fork the current thread without breaking stride.
+            </p>
+          </div>
+
+          <div class="deck" data-reveal>
+            <p class="deck-tag">Page 1 of 2</p>
+
+            <ul class="keys">
+              <li class="key">
+                <span class="keycap"><img src="/images/icons/open-chatgpt.webp" alt="" width="96" height="96" loading="lazy" decoding="async" /></span>
+                <span class="key-label">Open ChatGPT</span>
+              </li>
+              <li class="key">
+                <span class="keycap"><img src="/images/icons/new-chat.webp" alt="" width="96" height="96" loading="lazy" decoding="async" /></span>
+                <span class="key-label">New chat</span>
+              </li>
+              <li class="key">
+                <span class="keycap"><img src="/images/icons/fork-chat.webp" alt="" width="96" height="96" loading="lazy" decoding="async" /></span>
+                <span class="key-label">Fork chat</span>
+              </li>
+              <li class="key">
+                <span class="keycap"><img src="/images/icons/voice.webp" alt="" width="96" height="96" loading="lazy" decoding="async" /></span>
+                <span class="key-label">Voice</span>
+              </li>
+              <li class="key">
+                <span class="keycap"><img src="/images/icons/plan-mode.webp" alt="" width="96" height="96" loading="lazy" decoding="async" /></span>
+                <span class="key-label">Plan mode</span>
+              </li>
+              <li class="key">
+                <span class="keycap"><img src="/images/icons/model-selector.webp" alt="" width="96" height="96" loading="lazy" decoding="async" /></span>
+                <span class="key-label">Model selector</span>
+              </li>
+              <li class="key">
+                <span class="keycap"><img src="/images/icons/approve.webp" alt="" width="96" height="96" loading="lazy" decoding="async" /></span>
+                <span class="key-label">Approve</span>
+              </li>
+              <li class="key">
+                <span class="keycap"><img src="/images/icons/decline.webp" alt="" width="96" height="96" loading="lazy" decoding="async" /></span>
+                <span class="key-label">Decline</span>
+              </li>
+            </ul>
+
+            <div class="touchstrip" aria-hidden="true">
+              <img src="/images/icons/dial-history.webp" alt="" width="96" height="96" loading="lazy" decoding="async" />
+              <img src="/images/icons/dial-scroll.webp" alt="" width="96" height="96" loading="lazy" decoding="async" />
+              <img src="/images/icons/dial-effort.webp" alt="" width="96" height="96" loading="lazy" decoding="async" />
+              <img src="/images/icons/dial-chats.webp" alt="" width="96" height="96" loading="lazy" decoding="async" />
+            </div>
+
+            <ul class="dials">
+              <li class="dial"><span class="dial-knob"></span><span class="dial-label">History</span></li>
+              <li class="dial"><span class="dial-knob"></span><span class="dial-label">Scroll</span></li>
+              <li class="dial"><span class="dial-knob"></span><span class="dial-label">Effort</span></li>
+              <li class="dial"><span class="dial-knob"></span><span class="dial-label">Chats</span></li>
+            </ul>
+
+            <p class="controlmap-note">
+              Page two carries the rest of the day: project, Terminal, review panel, speed controls
+              and a side chat. Two nested folders hold the models and reasoning levels.
+            </p>
+          </div>
+        </div>
       </section>
 
+      <!-- ----------------------------------------------------------- dials -->
+      <section class="feature section-light" id="dials">
+        <div class="wrap feature-grid" data-reveal>
+          <figure class="feature-media on-light">
+            <img
+              src="/images/deck-angle-right-980.webp"
+              srcset="
+                /images/deck-angle-right-480.webp 480w,
+                /images/deck-angle-right-700.webp 700w,
+                /images/deck-angle-right-980.webp 980w
+              "
+              sizes="(max-width: 900px) 90vw, 46vw"
+              width="980"
+              height="870"
+              alt="A Stream Deck+ seen from the right, its four dials in the foreground"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+          <div class="feature-copy">
+            <p class="label">02 / Every dial earns its place</p>
+            <h2>More control. <em>Less mouse.</em></h2>
+            <p class="lead">
+              Scroll the long answers. Step back and forward through history. Nudge reasoning effort
+              mid-task. Move between chats without lifting your hand.
+            </p>
+            <ul class="metrics">
+              <li><span class="metric-index">01</span><span class="metric-name">History</span></li>
+              <li><span class="metric-index">02</span><span class="metric-name">Scroll</span></li>
+              <li><span class="metric-index">03</span><span class="metric-name">Effort</span></li>
+              <li><span class="metric-index">04</span><span class="metric-name">Chats</span></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ---------------------------------------------------------- models -->
+      <section class="feature section-dark" id="models">
+        <div class="wrap feature-grid is-reversed" data-reveal>
+          <figure class="feature-media on-dark">
+            <img
+              src="/images/deck-angle-left-1000.webp"
+              srcset="
+                /images/deck-angle-left-480.webp 480w,
+                /images/deck-angle-left-700.webp 700w,
+                /images/deck-angle-left-1000.webp 1000w
+              "
+              sizes="(max-width: 900px) 90vw, 46vw"
+              width="1000"
+              height="850"
+              alt="A Stream Deck+ seen from the left, keys lit and dials angled toward the camera"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+          <div class="feature-copy">
+            <p class="label">03 / Direct access</p>
+            <h2>One press. <em>Any model.</em></h2>
+            <p class="lead">
+              A dedicated key for every model, and a nested folder that runs from Light through Ultra
+              reasoning effort.
+            </p>
+            <ul class="checklist">
+              <li>No picker, no arrow keys, no hunting</li>
+              <li>Light through Ultra reasoning effort</li>
+              <li>Standard and Fast speed switching</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ------------------------------------------------------ fine print -->
+      <section class="fineprint section-light" id="details">
+        <div class="wrap fineprint-grid" data-reveal>
+          <div>
+            <p class="label">The fine print</p>
+            <h2>Built to stay useful.</h2>
+          </div>
+          <div class="prose">
+            <p>
+              The model, effort and speed controls drive ChatGPT's composer menu, the only method the
+              app currently exposes. If the model line-up changes, these controls may need an update.
+              Everything else uses direct shortcuts and is designed to stay put.
+            </p>
+            <p>
+              Tested with the ChatGPT app for macOS on 26 July 2026, and built for a US/ANSI keyboard
+              layout. Stream Deck profiles update by re-download; new versions are published when
+              they are needed.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ------------------------------------------------------------- cta -->
       <section class="cta" id="get-it">
-        <img class="cta-texture" src="/images/closing-texture.png" width="1536" height="1024" alt="" />
-        <div class="cta-inner wrap"><p class="section-label">Ready when you are</p><h2>Make your Stream Deck<br /><span>work harder.</span></h2><p>Available now on the Elgato Marketplace.</p><a class="button primary" href="https://marketplace.elgato.com/" target="_blank" rel="noreferrer">Find it on Elgato Marketplace <span aria-hidden="true">↗</span></a></div>
+        <div class="wrap">
+          <div class="cta-inner" data-reveal>
+            <p class="label">Ready when you are</p>
+            <h2>Make your Stream Deck <em>work harder.</em></h2>
+            <p class="lead">
+              DeckSmith Control for ChatGPT Work is published through the Elgato Marketplace.
+            </p>
+            <!--
+              TODO: replace the href below with the final Elgato Marketplace listing URL
+              once it is live, and drop rel="noreferrer" if you want referral data.
+            -->
+            <a class="btn btn-primary" href="https://marketplace.elgato.com/" target="_blank" rel="noreferrer">
+              Buy on Elgato Marketplace <span class="arrow" aria-hidden="true">↗</span>
+            </a>
+            <p class="cta-note">Stream Deck + &nbsp;·&nbsp; macOS &nbsp;·&nbsp; 31 controls</p>
+          </div>
+        </div>
       </section>
-
-      <footer class="footer wrap"><a class="wordmark" href="#top">Deck<span>Smith</span></a><p>Control surfaces for smarter work.</p><p>Not affiliated with or endorsed by OpenAI or Elgato.</p></footer>
     </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-grid">
+        <a class="brand" href="#top" aria-label="DeckSmith home">
+          <span class="wordmark">Deck<span>Smith</span></span>
+        </a>
+        <p class="footer-links"><span>Control surfaces for smarter work.</span></p>
+        <p>Not affiliated with, endorsed by, or sponsored by OpenAI or Elgato.</p>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        var header = document.querySelector('.site-header');
+        var toggle = document.querySelector('.nav-toggle');
+        var nav = document.getElementById('primary-nav');
+        var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        /* Sticky header state */
+        var onScroll = function () {
+          header.dataset.scrolled = window.scrollY > 8 ? 'true' : 'false';
+        };
+        onScroll();
+        window.addEventListener('scroll', onScroll, { passive: true });
+
+        /* Mobile navigation */
+        var setNav = function (open) {
+          toggle.setAttribute('aria-expanded', String(open));
+          toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+          nav.dataset.open = String(open);
+        };
+        setNav(false);
+
+        toggle.addEventListener('click', function () {
+          setNav(toggle.getAttribute('aria-expanded') !== 'true');
+        });
+
+        nav.addEventListener('click', function (event) {
+          if (event.target.closest('a')) setNav(false);
+        });
+
+        document.addEventListener('keydown', function (event) {
+          if (event.key === 'Escape') setNav(false);
+        });
+
+        window.addEventListener('resize', function () {
+          if (window.innerWidth > 900) setNav(false);
+        });
+
+        /* Scroll reveal */
+        var items = document.querySelectorAll('[data-reveal]');
+        if (reduce || !('IntersectionObserver' in window)) {
+          items.forEach(function (el) { el.classList.add('is-visible'); });
+          return;
+        }
+        var observer = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (!entry.isIntersecting) return;
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            });
+          },
+          { rootMargin: '0px 0px -12% 0px', threshold: 0.05 }
+        );
+        items.forEach(function (el) { observer.observe(el); });
+      })();
+    </script>
   </body>
 </html>

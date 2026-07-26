@@ -1,98 +1,95 @@
-# vinext-starter
+# decksmith-site
 
-A clean full-stack starter running on
-[vinext](https://github.com/cloudflare/vinext), with optional Cloudflare D1 and
-Drizzle support.
+The DeckSmith one-page brand, product-story and support site.
 
-## Prerequisites
+- Live: <https://decksmithhq.com>
+- Pages preview: <https://decksmith-site.pages.dev>
+- Hosting: GitHub → Cloudflare Pages
 
-- Node.js `>=22.13.0`
+The site is deliberately plain HTML, CSS and images. There is no framework, no
+build tooling and no dependencies, which keeps the page fast and means the repo
+will still build in two years without an npm install.
 
-## Quick Start
+## Structure
+
+```
+public/            everything that ships
+  index.html       the whole page
+  styles.css       the whole design system
+  favicon.svg      DeckSmith mark
+  robots.txt
+  sitemap.xml
+  _headers         Cloudflare Pages caching and security headers
+  images/          optimised WebP renders and extracted key icons
+    icons/         the 12 key and dial glyphs used by the control map
+assets-source/     original full-resolution marketplace artwork (not deployed)
+scripts/build.mjs  copies public/ to dist/client (see Deployment)
+```
+
+`assets-source/` holds the original 1920px marketplace banners the site imagery
+was cut from. Keep them: they are the masters if the renders ever need recutting.
+They are not served.
+
+## Local development
 
 ```bash
-npm install
-npm run dev
-npm run build
+npm run dev      # serves public/ on http://localhost:3000
 ```
 
-This starter does not use `wrangler.jsonc`.
+Or open `public/index.html` directly — nothing needs compiling.
 
-## Included Shape
+## Deployment
 
-- edit site code under `app/`
-- `.openai/hosting.json` declares optional Sites D1 and R2 bindings
-- `vite.config.ts` simulates declared bindings for local development
-- `db/schema.ts` starts intentionally empty
-- `examples/d1/` contains an optional D1 example surface
-- `drizzle.config.ts` supports local migration generation when needed
+Cloudflare Pages, either configuration works:
 
-## Workspace Auth Headers
+| Setting          | Simplest        | Compatible with the old project settings |
+| ---------------- | --------------- | ---------------------------------------- |
+| Build command    | *(leave empty)* | `npm run build`                          |
+| Output directory | `public`        | `dist/client`                            |
 
-OpenAI workspace sites can read the current user's email from
-`oai-authenticated-user-email`.
+`scripts/build.mjs` only copies `public/` into `dist/client`, so the second row
+exists purely so an existing Pages project keeps deploying without being
+reconfigured. The first row is preferable — it skips the build container.
 
-SIWC-authenticated workspace sites may also receive
-`oai-authenticated-user-full-name` when the user's SIWC profile has a non-empty
-`name` claim. The full-name value is percent-encoded UTF-8 and is accompanied by
-`oai-authenticated-user-full-name-encoding: percent-encoded-utf-8`.
+## Editing the page
 
-Treat the full name as optional and fall back to email when it is absent:
+Everything lives in two files.
 
-```tsx
-import { headers } from "next/headers";
+- **Copy and structure**: `public/index.html`
+- **Design**: `public/styles.css`, driven by custom properties in `:root`
 
-export default async function Home() {
-  const requestHeaders = await headers();
-  const email = requestHeaders.get("oai-authenticated-user-email");
-  const encodedFullName = requestHeaders.get("oai-authenticated-user-full-name");
-  const fullName =
-    encodedFullName &&
-    requestHeaders.get("oai-authenticated-user-full-name-encoding") ===
-      "percent-encoded-utf-8"
-      ? decodeURIComponent(encodedFullName)
-      : null;
+### Design tokens
 
-  const displayName = fullName ?? email;
-  // ...
-}
-```
+| Token           | Value     | Use                                             |
+| --------------- | --------- | ----------------------------------------------- |
+| `--ink`         | `#05080e` | page base                                       |
+| `--ink-2`       | `#070b13` | header and footer; matches the logo artwork      |
+| `--blue`        | `#0b59de` | primary action — sampled from the DeckSmith logo |
+| `--blue-lift`   | `#3d82f5` | hover and highlight                             |
+| `--blue-deep`   | `#1e3a8a` | brand book Twilight Blue, used on light sections |
+| `--toffee`      | `#d97706` | brand book Toffee Brown, list markers only       |
+| `--onyx`        | `#1f2937` | brand book Onyx Black, body text on light        |
+| `--mist`        | `#eef2f8` | light section base                              |
 
-## Optional Dispatch-Owned ChatGPT Sign-In
+Type is Space Grotesk with IBM Plex Mono for labels, per the brand book. All
+sizes are fluid `clamp()` values, so there are no fixed font sizes to maintain.
 
-Import the ready-to-use helpers from `app/chatgpt-auth.ts` when the site needs
-optional or required ChatGPT sign-in:
+### The control map
 
-- Use `getChatGPTUser()` for optional signed-in UI.
-- Use `requireChatGPTUser(returnTo)` for server-rendered pages that should send
-  anonymous visitors through Sign in with ChatGPT.
-- Use `chatGPTSignInPath(returnTo)` and `chatGPTSignOutPath(returnTo)` for
-  browser links or actions.
-- Pass a same-origin relative `returnTo` path for the destination after sign-in
-  or sign-out. The helper validates and safely encodes it.
-- Mark protected pages with `export const dynamic = "force-dynamic"` because
-  they depend on per-request identity headers.
+The "Your control surface" section is not an image. The keys, touch strip and
+dials are real HTML and CSS, using the 12 glyphs in `public/images/icons/`, which
+were extracted from the marketplace key-mapping artwork. To change a key, edit
+its `<li class="key">` in `index.html` — label text is real text, so it stays
+crisp, translatable and searchable at any screen size.
 
-Dispatch owns `/signin-with-chatgpt`, `/signout-with-chatgpt`, `/callback`, the
-OAuth cookies, and identity header injection. Do not implement app routes for
-those reserved paths. Routes that do not import and call the helper remain
-anonymous-compatible.
+## Before launch
 
-SIWC establishes identity only; it does not prove workspace membership. Use the
-Sites hosting platform's access policy controls for workspace-wide restrictions,
-or enforce explicit server-side membership or allowlist checks.
+1. Replace the placeholder Elgato Marketplace URL in `index.html` — search for
+   `TODO` in the CTA section. It currently points at the marketplace home page.
+2. Confirm the "Tested with the ChatGPT app for macOS on 26 July 2026" date in
+   the fine-print section is still accurate.
 
-Use SIWC for account pages, user-specific dashboards, saved records, and write
-actions tied to the current ChatGPT user. Leave public content anonymous.
+## Wording
 
-## Useful Commands
-
-- `npm run dev`: start local development
-- `npm run build`: verify the vinext build output
-- `npm test`: build the starter and verify its rendered loading skeleton
-- `npm run db:generate`: generate Drizzle migrations after schema changes
-
-## Learn More
-
-- [vinext Documentation](https://github.com/cloudflare/vinext)
-- [Drizzle D1 Guide](https://orm.drizzle.team/docs/get-started/d1-new)
+Avoid implying affiliation with OpenAI or Elgato. Use "built for ChatGPT work"
+and "available on Elgato Marketplace". The footer disclaimer must stay.
