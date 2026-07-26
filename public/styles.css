@@ -663,28 +663,40 @@ h1 em, h2 em { font-style: normal; color: var(--blue-lift); }
 
 /* ------------------------------------------------------------------ cta -- */
 
+/* Deliberately image-free: a centred closing statement, with the glow doing
+   the work the old stock texture used to do. */
 .cta {
   position: relative;
   overflow: hidden;
-  padding-block: clamp(5rem, 12vw, 11rem);
+  padding-block: clamp(4.5rem, 9vw, 8rem);
+  text-align: center;
   background:
-    radial-gradient(80% 120% at 78% 50%, rgba(11, 89, 222, 0.4) 0%, rgba(8, 16, 34, 0.5) 40%, transparent 72%),
+    radial-gradient(65% 105% at 50% 48%, rgba(11, 89, 222, 0.34) 0%, rgba(8, 16, 34, 0.45) 42%, transparent 74%),
     linear-gradient(180deg, var(--ink) 0%, var(--ink-2) 100%);
 }
 .cta::before {
   content: "";
   position: absolute;
-  inset: -40% -10% auto auto;
-  width: min(70vw, 780px);
+  top: -34%;
+  left: 50%;
+  translate: -50% 0;
+  width: min(84vw, 880px);
   aspect-ratio: 1;
   border-radius: 50%;
-  background: radial-gradient(closest-side, rgba(30, 58, 138, 0.5), transparent 70%);
+  background: radial-gradient(closest-side, rgba(30, 58, 138, 0.45), transparent 70%);
   filter: blur(60px);
   pointer-events: none;
 }
-.cta-inner { position: relative; max-width: 40ch; }
+.cta-inner {
+  position: relative;
+  max-width: 44ch;
+  margin-inline: auto;
+}
 .cta h2 { margin: 0.85rem 0 1.25rem; }
-.cta .lead { margin-bottom: clamp(1.75rem, 3vw, 2.25rem); }
+.cta .lead {
+  margin-inline: auto;
+  margin-bottom: clamp(1.75rem, 3vw, 2.25rem);
+}
 .cta-note {
   margin-top: 1.25rem;
   font-family: var(--mono);
@@ -775,8 +787,7 @@ h1 em, h2 em { font-style: normal; color: var(--blue-lift); }
   .feature-grid.is-reversed .feature-media { order: 0; }
   .feature-media { max-width: 34rem; }
 
-  .cta-inner { max-width: 100%; }
-  .cta h2 { max-width: 14ch; }
+  .cta-inner { max-width: 34rem; }
 
   .footer-grid { grid-template-columns: minmax(0, 1fr); text-align: left; gap: 1rem; }
   .footer-grid p:last-child { text-align: left; }
