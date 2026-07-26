@@ -42,7 +42,9 @@
       href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap"
     />
     <link rel="preload" as="image" href="/images/deck-front-820.webp" imagesrcset="/images/deck-front-480.webp 480w, /images/deck-front-700.webp 700w, /images/deck-front-820.webp 820w" imagesizes="(max-width: 900px) 90vw, 46vw" />
-    <link rel="stylesheet" href="/styles.css" />
+    <!-- The ?v= is a cache buster. scripts/build.mjs replaces it with a hash of
+         styles.css; bump it by hand if you ever deploy without the build step. -->
+    <link rel="stylesheet" href="/styles.css?v=2" />
 
     <script type="application/ld+json">
       {

@@ -47,9 +47,19 @@ Cloudflare Pages, either configuration works:
 | Build command    | *(leave empty)* | `npm run build`                          |
 | Output directory | `public`        | `dist/client`                            |
 
-`scripts/build.mjs` only copies `public/` into `dist/client`, so the second row
-exists purely so an existing Pages project keeps deploying without being
-reconfigured. The first row is preferable — it skips the build container.
+`scripts/build.mjs` copies `public/` into `dist/client` and stamps the stylesheet
+link with a content hash. The second row exists so an existing Pages project
+keeps deploying without being reconfigured.
+
+### A note on caching
+
+`index.html` is served with `max-age=0, must-revalidate`, so HTML changes appear
+immediately. Images are immutable and filename-versioned. **CSS is the awkward
+one**: Cloudflare edge-caches it for hours regardless of what `_headers` asks
+for, so `index.html` links it as `/styles.css?v=…` and the build step replaces
+that value with a hash of the file. If you ever deploy *without* running the
+build, bump the `?v=` number in `index.html` by hand whenever you edit
+`styles.css`, or the change will not reach people who have visited before.
 
 ## Editing the page
 
