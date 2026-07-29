@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Support | DeckSmith Control Profile for ChatGPT Work</title>
+    <meta
+      name="description"
+      content="Troubleshooting for the DeckSmith Control Profile for ChatGPT Work. Fixes for keys that stop working after a macOS update, model and effort keys, requirements and updates."
+    />
+    <link rel="canonical" href="https://decksmithhq.com/support/" />
+    <meta name="theme-color" content="#05080e" />
+    <meta name="color-scheme" content="dark light" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="DeckSmith" />
+    <meta property="og:title" content="Support | DeckSmith Control Profile for ChatGPT Work" />
+    <meta
+      property="og:description"
+      content="Troubleshooting for the DeckSmith Control Profile for ChatGPT Work, including the macOS permissions reset that stops every key working."
+    />
+    <meta property="og:url" content="https://decksmithhq.com/support/" />
+    <meta property="og:image" content="https://decksmithhq.com/images/og-image.jpg" />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    />
+    <link rel="stylesheet" href="/styles.css?v=3" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Nothing happens when I press a key, except Open ChatGPT",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "macOS has stopped honouring Stream Deck's Accessibility permission, which commonly happens after a macOS update. Quit Stream Deck, then in System Settings under Privacy and Security, Accessibility, switch Elgato Stream Deck off and back on again. Do the same under Input Monitoring, then reopen Stream Deck. Toggle it off and on even if it already looks enabled."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why does the Open ChatGPT key still work?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "That key only launches an application, which needs no permission from macOS. Every other control sends a keyboard shortcut, and sending keystrokes requires the Accessibility permission."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "The model, effort or speed keys select the wrong thing",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "These controls drive the ChatGPT composer menu, the only method the app currently exposes. If the model line-up or menu order changes, they can land on the wrong item. Updated profiles are published when required and are installed by re-downloading from the Elgato Marketplace."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What does the profile require?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A Stream Deck + running the Stream Deck app version 7.1 or later on macOS, the ChatGPT app for macOS, and a US or ANSI keyboard layout."
+            }
+          }
+        ]
+      }
+    </script>
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header" id="top">
+      <div class="wrap header-inner">
+        <a class="brand" href="/" aria-label="DeckSmith home">
+          <img class="brand-mark" src="/images/logo-mark.webp" alt="" width="256" height="256" decoding="async" />
+          <span class="wordmark">Deck<span>Smith</span></span>
+        </a>
+
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
+          <span class="nav-toggle-bars"></span>
+        </button>
+
+        <nav class="nav" id="primary-nav" aria-label="Primary">
+          <a class="nav-link" href="/#controls">Controls</a>
+          <a class="nav-link" href="/#details">Details</a>
+          <a class="nav-link" aria-current="page" href="/support/">Support</a>
+          <a
+            class="btn btn-primary"
+            href="https://marketplace.elgato.com/product/decksmith-control-profile-for-chatgpt-work-5b8530e1-363a-43f3-88ab-ac598052cc64"
+            target="_blank"
+            rel="noopener"
+          >
+            Get the profile <span class="arrow" aria-hidden="true">↗</span>
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="doc-hero">
+        <div class="wrap">
+          <p class="label">Support</p>
+          <h1>Fixing the profile when it stops responding.</h1>
+          <p class="lead">
+            Almost every fault with this profile has the same cause and the same fix. Start at the
+            top: it resolves the large majority of cases.
+          </p>
+        </div>
+      </section>
+
+      <div class="doc">
+        <div class="wrap doc-grid">
+          <nav class="doc-toc" aria-label="On this page">
+            <p class="label">On this page</p>
+            <ul>
+              <li><a href="#nothing-happens">Nothing happens when I press a key</a></li>
+              <li><a href="#secure-input">Still nothing after re-granting</a></li>
+              <li><a href="#focus">Some keys work, others do not</a></li>
+              <li><a href="#models">Model and effort keys misfire</a></li>
+              <li><a href="#requirements">Requirements</a></li>
+              <li><a href="#updates">Updating the profile</a></li>
+            </ul>
+          </nav>
+
+          <div class="doc-body">
+            <section id="nothing-happens">
+              <h2>Nothing happens when I press a key</h2>
+              <p>
+                The tell-tale sign is that <strong>Open ChatGPT still works while everything else is
+                dead</strong>. Folder buttons keep working too, because they never leave the Stream
+                Deck app.
+              </p>
+              <p>
+                That pattern means macOS has stopped honouring Stream Deck's Accessibility
+                permission. It happens most often straight after a macOS update. Open ChatGPT
+                survives because launching an application needs no permission, while every other
+                control sends a keyboard shortcut, and sending keystrokes does.
+              </p>
+
+              <h3>The fix</h3>
+              <ol class="doc-steps">
+                <li>Quit Stream Deck completely. Click its menu bar icon and choose Quit, or press <kbd>Cmd</kbd> <kbd>Q</kbd> with the window focused.</li>
+                <li>Open <strong>System Settings</strong>, then <strong>Privacy &amp; Security</strong>, then <strong>Accessibility</strong>.</li>
+                <li>Find <strong>Elgato Stream Deck</strong> and switch it <strong>off</strong>, then <strong>on</strong> again. Authenticate with Touch ID or your password when asked.</li>
+                <li>Go back and repeat the same off and on in <strong>Input Monitoring</strong>.</li>
+                <li>Reopen Stream Deck and try a key.</li>
+              </ol>
+
+              <div class="callout">
+                <p>
+                  <strong>Toggle it off and on even if it already looks enabled.</strong> This is the
+                  part people skip. The switch frequently still reads as on while the permission
+                  behind it has gone stale, so the state of the switch tells you nothing. Re-issuing
+                  the permission is what actually fixes it.
+                </p>
+              </div>
+            </section>
+
+            <section id="secure-input">
+              <h2>Still nothing after re-granting</h2>
+              <p>
+                If keys are still dead, something on your Mac is likely holding <em>Secure Input</em>
+                open. While it is active, macOS blocks every synthetic keystroke system-wide, so no
+                app can send shortcuts, not just Stream Deck.
+              </p>
+              <p>
+                It is usually a password field that still has focus somewhere. Close any open
+                password prompt, unlock dialog, password manager window or login screen, then try a
+                key again. Logging out and back in clears a stuck one.
+              </p>
+              <p>
+                Restarting your Mac also resolves it, and is worth doing before anything more drastic.
+                There is no need to reinstall the profile: a profile cannot cause this.
+              </p>
+            </section>
+
+            <section id="focus">
+              <h2>Some keys work, others do not</h2>
+              <p>
+                Shortcuts always go to whichever application is frontmost. If ChatGPT is not the
+                active window, the keys land somewhere else. Press <strong>Open ChatGPT</strong>
+                first to bring it forward, then use the rest of the page.
+              </p>
+              <p>
+                The profile is also built for a <strong>US or ANSI keyboard layout</strong>. On other
+                layouts some punctuation keys sit in different positions, so a few controls may not
+                land where they should even though the rest work normally.
+              </p>
+            </section>
+
+            <section id="models">
+              <h2>Model and effort keys misfire</h2>
+              <p>
+                The model, reasoning effort and speed controls drive the ChatGPT composer menu, which
+                is the only method the app currently exposes. They depend on the shape of that menu.
+                If the model line-up changes or the menu is reordered, those keys can land on the
+                wrong item.
+              </p>
+              <p>
+                Everything else in the profile, including approve, decline, plan mode, voice, new
+                chat, fork and all four dials, uses direct shortcuts and is unaffected by menu
+                changes. Updated profiles are published when they are needed.
+              </p>
+            </section>
+
+            <section id="requirements">
+              <h2>Requirements</h2>
+              <ul class="doc-list">
+                <li><strong>Stream Deck +.</strong> The profile maps all four dials and the touch strip, so it needs the model that has them.</li>
+                <li><strong>macOS.</strong> The shortcuts are macOS shortcuts. There is no Windows version.</li>
+                <li><strong>Stream Deck app 7.1 or later.</strong> Earlier versions cannot import the profile correctly.</li>
+                <li><strong>The ChatGPT app for macOS</strong>, signed in and installed.</li>
+                <li><strong>A US or ANSI keyboard layout.</strong></li>
+              </ul>
+            </section>
+
+            <section id="updates">
+              <h2>Updating the profile</h2>
+              <p>
+                Stream Deck profiles do not update in place. To move to a newer version, download it
+                again from the Elgato Marketplace and import it. Your existing copy can be removed
+                afterwards from the Stream Deck app's profile list.
+              </p>
+              <p>
+                Re-importing is also the cleanest way to undo any accidental edits to the layout.
+              </p>
+            </section>
+
+            <div class="doc-foot">
+              <p>
+                Still stuck? Use <strong>Contact the Maker</strong> on the Elgato Marketplace listing
+                and include your macOS version, your Stream Deck app version and which keys are
+                affected.
+              </p>
+              <p style="margin-top: 1.5rem">
+                <a
+                  class="btn btn-primary"
+                  href="https://marketplace.elgato.com/product/decksmith-control-profile-for-chatgpt-work-5b8530e1-363a-43f3-88ab-ac598052cc64"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Open the Marketplace listing <span class="arrow" aria-hidden="true">↗</span>
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-grid">
+        <a class="brand" href="/" aria-label="DeckSmith home">
+          <span class="wordmark">Deck<span>Smith</span></span>
+        </a>
+        <p class="footer-links"><a href="/">Home</a> <a href="/support/">Support</a></p>
+        <p>Not affiliated with, endorsed by, or sponsored by OpenAI or Elgato.</p>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        var header = document.querySelector('.site-header');
+        var toggle = document.querySelector('.nav-toggle');
+        var nav = document.getElementById('primary-nav');
+
+        var onScroll = function () {
+          header.dataset.scrolled = window.scrollY > 8 ? 'true' : 'false';
+        };
+        onScroll();
+        window.addEventListener('scroll', onScroll, { passive: true });
+
+        var setNav = function (open) {
+          toggle.setAttribute('aria-expanded', String(open));
+          toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+          nav.dataset.open = String(open);
+        };
+        setNav(false);
+
+        toggle.addEventListener('click', function () {
+          setNav(toggle.getAttribute('aria-expanded') !== 'true');
+        });
+        nav.addEventListener('click', function (e) { if (e.target.closest('a')) setNav(false); });
+        document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setNav(false); });
+        window.addEventListener('resize', function () { if (window.innerWidth > 900) setNav(false); });
+      })();
+    </script>
+  </body>
+</html>

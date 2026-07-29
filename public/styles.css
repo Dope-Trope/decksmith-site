@@ -145,6 +145,22 @@ h1 em, h2 em { font-style: normal; color: var(--blue-lift); }
 }
 .section-light .lead { color: var(--on-light-muted); }
 
+/* Inline links inside body copy need to be distinguishable from plain text. */
+.prose a,
+.doc-body p a,
+.doc-body li a {
+  color: var(--blue-deep);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  transition: color 0.2s ease;
+}
+.prose a:hover,
+.doc-body p a:hover,
+.doc-body li a:hover { color: var(--blue); }
+.prose a.btn,
+.doc-body a.btn { text-decoration: none; color: #fff; }
+
 .prose p { color: var(--on-dark-muted); max-width: 58ch; text-wrap: pretty; }
 .prose p + p { margin-top: 1.1em; }
 .section-light .prose p { color: var(--on-light-muted); }
@@ -704,6 +720,158 @@ h1 em, h2 em { font-style: normal; color: var(--blue-lift); }
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--on-dark-faint);
+}
+
+/* ------------------------------------------------------ support / docs -- */
+
+.doc-hero {
+  padding-block: clamp(3.5rem, 8vw, 6rem) clamp(2.5rem, 5vw, 4rem);
+  background:
+    radial-gradient(80% 90% at 50% 0%, rgba(16, 40, 96, 0.55), transparent 68%),
+    linear-gradient(180deg, var(--ink-2) 0%, var(--ink) 100%);
+  border-bottom: 1px solid var(--line-dark);
+}
+.doc-hero h1 {
+  font-size: clamp(2.25rem, 5.4vw, 3.75rem);
+  margin-top: 0.75rem;
+  max-width: 18ch;
+}
+.doc-hero .lead { margin-top: 1.25rem; max-width: 56ch; }
+
+.doc {
+  padding-block: clamp(3rem, 7vw, 5.5rem);
+  background: var(--mist);
+  color: var(--on-light);
+}
+.doc-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 15rem) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: start;
+}
+
+.doc-toc {
+  position: sticky;
+  top: 6.5rem;
+  border-left: 2px solid rgba(30, 58, 138, 0.16);
+  padding-left: 1.1rem;
+}
+.doc-toc p { margin-bottom: 0.85rem; }
+.doc-toc li + li { margin-top: 0.55rem; }
+.doc-toc a {
+  font-size: 0.9375rem;
+  line-height: 1.35;
+  color: var(--on-light-muted);
+  display: block;
+  transition: color 0.2s ease;
+}
+.doc-toc a:hover { color: var(--blue-deep); }
+
+.doc-body > section + section {
+  margin-top: clamp(2.5rem, 5vw, 3.5rem);
+  padding-top: clamp(2.5rem, 5vw, 3.5rem);
+  border-top: 1px solid var(--line-light);
+}
+.doc-body h2 {
+  font-size: clamp(1.5rem, 2.8vw, 2.125rem);
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+  scroll-margin-top: 6rem;
+}
+.doc-body h3 {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  margin-top: 1.75rem;
+}
+.doc-body p,
+.doc-body li { color: var(--on-light-muted); max-width: 66ch; }
+.doc-body > section > p { margin-top: 1rem; }
+
+.doc-steps {
+  counter-reset: step;
+  list-style: none;
+  margin-top: 1.25rem;
+  padding: 0;
+}
+.doc-steps li {
+  counter-increment: step;
+  position: relative;
+  padding: 0.5rem 0 0.5rem 2.75rem;
+  max-width: 62ch;
+}
+.doc-steps li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0.5rem;
+  width: 1.75rem;
+  height: 1.75rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--blue-deep);
+  color: #fff;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+}
+
+.doc-list { margin-top: 1rem; }
+.doc-list li {
+  position: relative;
+  padding: 0.35rem 0 0.35rem 1.4rem;
+}
+.doc-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 1.05em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--toffee);
+}
+
+kbd {
+  font-family: var(--mono);
+  font-size: 0.8125em;
+  padding: 0.15em 0.45em;
+  border: 1px solid rgba(30, 58, 138, 0.24);
+  border-bottom-width: 2px;
+  border-radius: 5px;
+  background: #fff;
+  color: var(--onyx);
+  white-space: nowrap;
+}
+
+.callout {
+  margin-top: 1.5rem;
+  padding: 1.1rem 1.25rem;
+  border-radius: 12px;
+  border: 1px solid rgba(30, 58, 138, 0.18);
+  background: rgba(30, 58, 138, 0.05);
+}
+.callout p { margin: 0; max-width: none; }
+.callout strong { color: var(--blue-deep); }
+
+.doc-foot {
+  margin-top: clamp(2.5rem, 5vw, 3.5rem);
+  padding-top: clamp(2rem, 4vw, 2.5rem);
+  border-top: 1px solid var(--line-light);
+}
+
+@media (max-width: 900px) {
+  .doc-grid { grid-template-columns: minmax(0, 1fr); }
+  .doc-toc {
+    position: static;
+    border-left: 0;
+    border-top: 1px solid var(--line-light);
+    padding: 1.25rem 0 0;
+  }
+  .doc-toc ul { columns: 2; column-gap: 1.5rem; }
+}
+@media (max-width: 520px) {
+  .doc-toc ul { columns: 1; }
 }
 
 /* --------------------------------------------------------------- footer -- */
