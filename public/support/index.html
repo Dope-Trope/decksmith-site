@@ -56,7 +56,15 @@
           },
           {
             "@type": "Question",
-            "name": "The model, effort or speed keys select the wrong thing",
+            "name": "Specific keys do nothing, but most work",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Eleven of the commands this profile uses ship unassigned in ChatGPT. Until you set them, the keys that use them do nothing, while every key that uses a built-in ChatGPT shortcut works normally. The download includes chatgpt-keybindings.json, which sets all eleven at once. Copy it over ~/.codex/keybindings.json, then quit and reopen ChatGPT, because the app reads that file only at launch."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "The model or effort keys select the wrong thing",
             "acceptedAnswer": {
               "@type": "Answer",
               "text": "These controls drive the ChatGPT composer menu, the only method the app currently exposes. If the model line-up or menu order changes, they can land on the wrong item. Updated profiles are published when required and are installed by re-downloading from the Elgato Marketplace."
@@ -67,7 +75,7 @@
             "name": "What does the profile require?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "A Stream Deck + running the Stream Deck app version 7.1 or later on macOS, the ChatGPT app for macOS, and a US or ANSI keyboard layout."
+              "text": "A Stream Deck + running the Stream Deck app version 7.5 or later on macOS, the ChatGPT app for macOS, and a US or ANSI keyboard layout."
             }
           }
         ]
@@ -124,6 +132,7 @@
             <ul>
               <li><a href="#nothing-happens">Nothing happens when I press a key</a></li>
               <li><a href="#secure-input">Still nothing after re-granting</a></li>
+              <li><a href="#unassigned">Specific keys do nothing, but most work</a></li>
               <li><a href="#focus">Some keys work, others do not</a></li>
               <li><a href="#models">Model and effort keys misfire</a></li>
               <li><a href="#requirements">Requirements</a></li>
@@ -183,6 +192,30 @@
               </p>
             </section>
 
+            <section id="unassigned">
+              <h2>Specific keys do nothing, but most work</h2>
+              <p>
+                Eleven of the commands this profile uses ship unassigned in ChatGPT. Until you set
+                them, the keys that use them do nothing, while every key that uses a built-in
+                ChatGPT shortcut works normally. That mixed pattern is the tell.
+              </p>
+              <p>
+                The download includes <strong>chatgpt-keybindings.json</strong>, which sets all eleven
+                at once. Copy it over <strong>~/.codex/keybindings.json</strong>, then <strong>quit and
+                reopen ChatGPT</strong>. The app reads that file only at launch, so editing it while
+                ChatGPT is running changes nothing and Settings will keep showing the commands as
+                Unassigned.
+              </p>
+              <p>
+                To check it took, open Settings, then Keyboard shortcuts, and search for
+                &ldquo;fast&rdquo;. If Toggle Fast mode shows a shortcut, they all applied.
+              </p>
+              <p>
+                <strong>KEYBOARD-SHORTCUTS.md</strong> in the download lists all eleven if you would
+                rather set them by hand, which takes effect immediately with no restart.
+              </p>
+            </section>
+
             <section id="focus">
               <h2>Some keys work, others do not</h2>
               <p>
@@ -200,7 +233,7 @@
             <section id="models">
               <h2>Model and effort keys misfire</h2>
               <p>
-                The model, reasoning effort and speed controls drive the ChatGPT composer menu, which
+                The model and reasoning effort controls drive the ChatGPT composer menu, which
                 is the only method the app currently exposes. They depend on the shape of that menu.
                 If the model line-up changes or the menu is reordered, those keys can land on the
                 wrong item.
@@ -217,7 +250,7 @@
               <ul class="doc-list">
                 <li><strong>Stream Deck +.</strong> The profile maps all four dials and the touch strip, so it needs the model that has them.</li>
                 <li><strong>macOS.</strong> The shortcuts are macOS shortcuts. There is no Windows version.</li>
-                <li><strong>Stream Deck app 7.1 or later.</strong> Earlier versions cannot import the profile correctly.</li>
+                <li><strong>Stream Deck app 7.5 or later.</strong> Earlier versions cannot import the profile correctly.</li>
                 <li><strong>The ChatGPT app for macOS</strong>, signed in and installed.</li>
                 <li><strong>A US or ANSI keyboard layout.</strong></li>
               </ul>

@@ -6,7 +6,7 @@
     <title>DeckSmith | Control surfaces for smarter work</title>
     <meta
       name="description"
-      content="DeckSmith turns a Stream Deck+ into a physical control surface for ChatGPT work. 31 mapped controls, one press per model, all four dials in use. Built for macOS."
+      content="DeckSmith turns a Stream Deck+ into a physical control surface for ChatGPT work. 48 mapped controls, one press per model, all four dials in use. Built for macOS."
     />
     <link rel="canonical" href="https://decksmithhq.com/" />
     <meta name="theme-color" content="#05080e" />
@@ -17,7 +17,7 @@
     <meta property="og:title" content="DeckSmith | Control surfaces for smarter work" />
     <meta
       property="og:description"
-      content="A precision-built Stream Deck+ control profile for ChatGPT work on macOS. 31 controls, one press per model, every dial mapped."
+      content="A precision-built Stream Deck+ control profile for ChatGPT work on macOS. 48 controls, one press per model, every dial mapped."
     />
     <meta property="og:url" content="https://decksmithhq.com/" />
     <meta property="og:image" content="https://decksmithhq.com/images/og-image.jpg" />
@@ -52,7 +52,7 @@
         "@type": "Product",
         "name": "DeckSmith Control Profile for ChatGPT Work",
         "brand": { "@type": "Brand", "name": "DeckSmith" },
-        "description": "A Stream Deck+ control profile that maps 31 controls for ChatGPT work on macOS, including one press per model and reasoning level, and all four dials.",
+        "description": "A Stream Deck+ control profile that maps 48 controls for ChatGPT work on macOS, including one press per model and reasoning level, and all four dials.",
         "image": "https://decksmithhq.com/images/og-image.jpg",
         "url": "https://decksmithhq.com/",
         "category": "Stream Deck profile"
@@ -114,7 +114,7 @@
             <h1>Put ChatGPT <em>within reach.</em></h1>
             <p class="lead">
               DeckSmith turns a Stream Deck+ into a physical control surface for ChatGPT work.
-              Thirty-one controls, laid out where your fingers already expect them.
+              Forty-eight controls, laid out where your fingers already expect them.
             </p>
             <div class="hero-actions">
               <a
@@ -128,7 +128,7 @@
               <a class="btn btn-ghost" href="#controls">See what's mapped</a>
             </div>
             <ul class="spec-chips">
-              <li class="is-key">31 controls</li>
+              <li class="is-key">48 controls</li>
               <li>Stream Deck +</li>
               <li>macOS</li>
             </ul>
@@ -157,7 +157,7 @@
       <section class="stats" aria-label="Profile at a glance">
         <ul class="wrap stats-grid">
           <li>
-            <span class="stat-value">31</span>
+            <span class="stat-value">48</span>
             <span class="stat-label">Mapped controls</span>
           </li>
           <li>
@@ -165,11 +165,11 @@
             <span class="stat-label">Dials in use</span>
           </li>
           <li>
-            <span class="stat-value">2</span>
+            <span class="stat-value">3</span>
             <span class="stat-label">Pages</span>
           </li>
           <li>
-            <span class="stat-value">27</span>
+            <span class="stat-value">43</span>
             <span class="stat-label">Custom icons</span>
           </li>
         </ul>
@@ -199,13 +199,14 @@
               <h2>Clear the queue. <em>Keep your flow.</em></h2>
             </div>
             <p class="lead">
-              Approve and decline with dedicated keys. Toggle plan mode or voice. Start a new chat
-              or fork the current thread without breaking stride.
+              Approve and decline with dedicated keys. Toggle plan mode. Start a voice chat with a
+              press and mute your microphone with a hold. Start a new chat or fork the current
+              thread without breaking stride.
             </p>
           </div>
 
           <div class="deck" data-reveal>
-            <p class="deck-tag">Page 1 of 2</p>
+            <p class="deck-tag">Page 1 of 3</p>
 
             <ul class="keys">
               <li class="key">
@@ -222,7 +223,7 @@
               </li>
               <li class="key">
                 <span class="keycap"><img src="/images/icons/voice.webp" alt="" width="96" height="96" loading="lazy" decoding="async" /></span>
-                <span class="key-label">Voice</span>
+                <span class="key-label">Voice + mute</span>
               </li>
               <li class="key">
                 <span class="keycap"><img src="/images/icons/plan-mode.webp" alt="" width="96" height="96" loading="lazy" decoding="async" /></span>
@@ -257,8 +258,10 @@
             </ul>
 
             <p class="controlmap-note">
-              Page two carries the rest of the day: project, Terminal, review panel, speed controls
-              and a side chat. Two nested folders hold the models and reasoning levels.
+              Two more pages carry the rest of the day: finding, pinning and renaming conversations,
+              setting a goal, copying a thread as Markdown and checking your usage, then attaching
+              files, pointing a task at a local workspace, dictation, side chat and the browser. Two
+              nested folders hold the models and reasoning levels.
             </p>
           </div>
         </div>
@@ -288,7 +291,8 @@
             <h2>More control. <em>Less mouse.</em></h2>
             <p class="lead">
               Scroll the long answers. Step back and forward through history. Nudge reasoning effort
-              mid-task. Move between chats without lifting your hand.
+              mid-task. Move between chats without lifting your hand. Press a dial to toggle the
+              sidebar, find in the current chat, cycle effort or open the command menu.
             </p>
             <ul class="metrics">
               <li><span class="metric-index">01</span><span class="metric-name">History</span></li>
@@ -329,7 +333,7 @@
             <ul class="checklist">
               <li>No picker, no arrow keys, no hunting</li>
               <li>Light through Ultra reasoning effort</li>
-              <li>Standard and Fast speed switching</li>
+              <li>Fast mode on a single toggle</li>
             </ul>
           </div>
         </div>
@@ -344,15 +348,20 @@
           </div>
           <div class="prose">
             <p>
-              The model, effort and speed controls drive ChatGPT's composer menu, the only method the
+              The model and effort controls drive ChatGPT's composer menu, the only method the
               app currently exposes. If the model line-up changes, these controls may need an update.
               Everything else uses direct shortcuts and is designed to stay put.
             </p>
             <p>
-              Requires a Stream Deck + running Stream Deck 7.1 or later on macOS. Tested with the
-              ChatGPT app for macOS on 26 July 2026, and built for a US/ANSI keyboard layout.
-              Stream Deck profiles update by re-download; new versions are published when they
-              are needed.
+              Eleven of the commands this profile uses ship unassigned in ChatGPT. The download
+              includes a keybindings file that sets all eleven in one step, and the setup guide walks
+              through it, but the keys that use them do nothing until you do.
+            </p>
+            <p>
+              Requires a Stream Deck + running Stream Deck 7.5 or later on macOS. Tested with the
+              ChatGPT app for macOS, build 26.727.51351, on 2 August 2026, and built for a US/ANSI
+              keyboard layout. Stream Deck profiles update by re-download; new versions are published
+              when they are needed.
             </p>
             <p>
               If the keys ever stop responding, a macOS update has almost certainly reset Stream
@@ -380,7 +389,7 @@
             >
               Buy on Elgato Marketplace <span class="arrow" aria-hidden="true">↗</span>
             </a>
-            <p class="cta-note">Stream Deck + &nbsp;·&nbsp; macOS &nbsp;·&nbsp; 31 controls</p>
+            <p class="cta-note">Stream Deck + &nbsp;·&nbsp; macOS &nbsp;·&nbsp; 48 controls</p>
           </div>
         </div>
       </section>
